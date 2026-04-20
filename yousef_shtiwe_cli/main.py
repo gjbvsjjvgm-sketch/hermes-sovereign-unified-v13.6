@@ -58,7 +58,6 @@ def launch_core(subcommand=None, extra_args=None):
         # Adjust PYTHONPATH for internal core
         SOVEREIGN_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
         sys.path.insert(0, os.path.join(SOVEREIGN_ROOT, "hermes-agent"))
-        sys.path.insert(0, "/root/tools")
         
         from yousef_shtiwe_cli_core.main import main as core_main
         sys.argv[0] = "yousef"
