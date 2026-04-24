@@ -29,7 +29,7 @@ def run_full_arsenal_install():
     
     # 1. Python Procurement (User-space)
     console.print("[*] Hardening Neural Intelligence Layer (User-space)...")
-    subprocess.run([sys.executable, "-m", "pip", "install", "--user", "--upgrade", "pip"], check=False)
+    # pip upgrade skipped
     python_deps = ["requests", "pyyaml", "pydantic", "rich", "prompt_toolkit", "httpx", "tenacity", "jinja2", "fire", "exa-py", "firecrawl-py", "parallel-web", "fal-client", "edge-tts", "PyJWT", "websockets", "nest-asyncio", "aiohttp", "ghunt"]
     subprocess.run([sys.executable, "-m", "pip", "install", "--user"] + python_deps, check=False)
     

@@ -29,7 +29,6 @@ pkg update && pkg upgrade -y
 pkg install -y python git curl proot wget nmap chromium tur-repo x11-repo
 
 echo "[*] Installing Verified Dependencies..."
-pip install --no-cache-dir --upgrade pip
 pip install --no-cache-dir requests playwright-core playwright-stealth beautifulsoup4 lxml pycryptodome scapy
 
 echo "[*] Patching Chromium for Rootless ARM64..."
