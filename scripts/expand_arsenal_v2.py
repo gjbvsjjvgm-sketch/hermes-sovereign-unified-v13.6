@@ -16,7 +16,7 @@ NEW_SKILLS = [
     },
     {
         "name": "Engagement Growth (Stealth Automation)",
-        "module": "growth_engine_v2",
+        "module": "growth_engine_v3",
         "description": "Rootless social media engagement (Likes, Followers, Comments) using stealth browsers.",
         "tools": [
             {"name": "pw-stealth-enhanced", "url": "https://github.com/fukukei23/pw-stealth-enhanced", "purpose": "Browser fingerprinting bypass"},
@@ -43,16 +43,20 @@ NEW_SKILLS = [
 ]
 
 def update_manifest():
-    manifest_path = "workspace/hermes-sovereign-worm-v2-complete/skills_manifest.json"
-    print(f"[*] Updating Sovereign Manifest at {manifest_path}")
+    # The script is executed inside the repo root via cd
+    manifest_path = "skills_manifest.json"
+    print(f"[*] Updating Sovereign Manifest at {os.path.abspath(manifest_path)}")
     
     current_data = []
     if os.path.exists(manifest_path):
         with open(manifest_path, 'r') as f:
-            current_data = json.load(f)
+            try:
+                current_data = json.load(f)
+            except json.JSONDecodeError:
+                current_data = []
     
     # Merge new skills
-    existing_names = [s['name'] for s in current_data]
+    existing_names = [s.get('name') for s in current_data if isinstance(s, dict)]
     for skill in NEW_SKILLS:
         if skill['name'] not in existing_names:
             current_data.append(skill)
@@ -62,17 +66,18 @@ def update_manifest():
     print("[✓] Manifest updated with Social/Network/Gaming skills.")
 
 def generate_module_stubs():
-    base_path = "workspace/hermes-sovereign-worm-v2-complete/offensive_modules"
+    base_path = "offensive_modules"
     os.makedirs(base_path, exist_ok=True)
     
     for skill in NEW_SKILLS:
         module_file = os.path.join(base_path, f"{skill['module']}.py")
-        print(f"[*] Forging Module Stub: {module_file}")
+        print(f"[*] Forging Module Stub: {os.path.abspath(module_file)}")
         with open(module_file, 'w') as f:
             f.write(f'"""\nSovereign Offensive Module: {skill["name"]}\nStatus: Operational (Rootless)\n"""\n\n')
-            f.write(f"class {skill['module'].title().replace('_', '')}:\n")
+            class_name = skill['module'].title().replace('_', '')
+            f.write(f"class {class_name}:\n")
             f.write(f'    def __init__(self):\n        self.description = "{skill["description"]}"\n')
-            f.write(f"    def execute(self, target):\n        pass\n")
+            f.write(f"    def execute(self, target):\n        print(f'[*] {{self.__class__.__name__}} targeting: {{target}}')\n        pass\n")
 
 if __name__ == "__main__":
     update_manifest()
