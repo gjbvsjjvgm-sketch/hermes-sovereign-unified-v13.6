@@ -1,55 +1,31 @@
-import random
-import string
+import secrets
 import hashlib
+from Crypto.Cipher import AES
 
-class CryptoGen:
+class SovereignCrypto:
     """
-    وحدة توليد الرموز وتحليل خوارزميات بطاقات الشحن.
-    تستخدم لتحليل أنماط التشفير والتحقق من صحة الأكواد (Luhn Algorithm, etc).
+    توليد وتحليل أكواد التشفير بناءً على خوارزميات حقيقية.
     """
     def __init__(self):
-        self.supported_patterns = ["16-digit", "12-digit-alphanumeric", "PIN-code"]
+        self.master_key = b"SovereignV13Key2026"
 
-    def analyze_pattern(self, sample_codes):
+    def generate_validated_pin(self, prefix, length=16):
         """
-        تحليل عينة من الأكواد لاكتشاف الخوارزمية المستخدمة.
+        توليد PIN يتبع خوارزمية Luhn للتحقق الصحيح.
         """
-        print(f"[*] Analyzing patterns for {len(sample_codes)} samples...")
-        # منطق التحليل الإحصائي للأنماط (Statistical Analysis)
-        # محاكاة الكشف عن الخوارزمية
-        analysis = {
-            "detected_algorithm": "Modified_Luhn",
-            "pattern_type": "16-digit-numeric",
-            "security_level": "MODERATE"
-        }
-        return analysis
+        def luhn_checksum(n):
+            r = [int(ch) for ch in n][::-1]
+            return (sum(r[0::2]) + sum(sum(divmod(d*2, 10)) for d in r[1::2])) % 10
 
-    def generate_candidate_codes(self, pattern, length=16):
-        """
-        توليد أكواد مرشحة (Candidate Codes) للتحقق منها.
-        """
-        print(f"[*] Generating candidate codes for pattern: {pattern}")
-        codes = []
-        for _ in range(5):
-            # توليد أكواد تتبع خوارزمية معينة (Algorithmic Generation)
-            code = ''.join(random.choices(string.digits, k=length))
-            codes.append(code)
-        return codes
+        partial = prefix + "".join([str(secrets.randbelow(10)) for _ in range(length - len(prefix) - 1)])
+        check_digit = (10 - luhn_checksum(partial + '0')) % 10
+        return partial + str(check_digit)
 
-    def luhn_checksum(self, card_number):
-        """
-        خوارزمية لوهن (Luhn) للتحقق من صحة أرقام البطاقات.
-        """
-        digits = [int(d) for d in card_number]
-        odd_digits = digits[-1::-2]
-        even_digits = digits[-2::-2]
-        checksum = sum(odd_digits)
-        for d in even_digits:
-            checksum += sum(divmod(d * 2, 10))
-        return checksum % 10 == 0
+    def analyze_vulnerability_pattern(self, batch_data):
+        # استخدام SHA256 لتحليل بصمة الحزمة
+        fingerprint = hashlib.sha256(batch_data.encode()).hexdigest()
+        return {"batch_fingerprint": fingerprint, "entropy": "high"}
 
 if __name__ == "__main__":
-    gen = CryptoGen()
-    sample = "4000123456789010"
-    print(f"[*] Luhn check for {sample}: {gen.luhn_checksum(sample)}")
-    print(f"[*] Candidates: {gen.generate_candidate_codes('16-digit')}")
+    crypto = SovereignCrypto()
+    print(f"[*] Generated Validated PIN: {crypto.generate_validated_pin('444')}")
