@@ -17,7 +17,7 @@ def materialize_real_arsenal():
             try:
                 cmd = f"dig {domain} ANY +short"
                 result = subprocess.check_output(cmd, shell=True, stderr=subprocess.STDOUT).decode()
-                return f"[☠] DNS RECORDS FOR {domain}:\\n{result}" if result else f"[!] No records found for {domain}."
+                return f"[] DNS RECORDS FOR {domain}:\\n{result}" if result else f"[!] No records found for {domain}."
             except Exception as e:
                 return f"[!] Dig failed: {str(e)}"
 
@@ -29,7 +29,7 @@ def materialize_real_arsenal():
                 result = subprocess.check_output(cmd, shell=True).decode()
                 data = json.loads(result)
                 summary = [f"{k.upper()}: {v}" for k, v in data.items() if k in ["ip", "city", "region", "country_name", "org"]]
-                return f"[☠] INTEL ON {ip}:\\n" + "\\n".join(summary)
+                return f"[] INTEL ON {ip}:\\n" + "\\n".join(summary)
             except Exception as e:
                 return f"[!] Intel extraction failed: {str(e)}"
         '''))
@@ -61,7 +61,7 @@ def materialize_real_arsenal():
                     open_ports = [p for p in results if p is not None]
                 
                 if open_ports:
-                    return f"[☠] SOVEREIGN PORT SCAN ON {target_host} ({host}):\\n" + "\\n".join([f"Port {p}: OPEN" for p in open_ports])
+                    return f"[] SOVEREIGN PORT SCAN ON {target_host} ({host}):\\n" + "\\n".join([f"Port {p}: OPEN" for p in open_ports])
                 return f"[!] No open entry points detected on {target_host}."
             except Exception as e:
                 return f"[!] Scan aborted: {str(e)}"
@@ -79,7 +79,7 @@ def materialize_real_arsenal():
                 encoded_query = urllib.parse.quote(query)
                 # Querying a known vulnerability aggregator (simulated API interaction via curl)
                 url = f"https://cve.mitre.org/cgi-bin/cvekey.cgi?keyword={encoded_query}"
-                return f"[☠] SOVEREIGN EXPLOIT DATABASE SEARCH: {query}\\n[+] Reference: {url}\\n[!] Analyze results for ARMING payloads."
+                return f"[] SOVEREIGN EXPLOIT DATABASE SEARCH: {query}\\n[+] Reference: {url}\\n[!] Analyze results for ARMING payloads."
             except Exception as e:
                 return f"[!] DB Query failed: {str(e)}"
         '''))
@@ -100,7 +100,7 @@ def materialize_real_arsenal():
                 with tarfile.open(output_filename, "w:gz") as tar:
                     tar.add(directory_path, arcname=os.path.basename(directory_path))
                 
-                return f"[☠] DATA PACKED: {output_filename} ({os.path.getsize(output_filename)} bytes). Protocol: Shadow Stealth."
+                return f"[] DATA PACKED: {output_filename} ({os.path.getsize(output_filename)} bytes). Protocol: Shadow Stealth."
             except Exception as e:
                 return f"[!] Exfiltration prep failed: {str(e)}"
         '''))

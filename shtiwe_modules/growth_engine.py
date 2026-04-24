@@ -1,12 +1,12 @@
 import time
 import random
 from playwright.sync_api import sync_playwright
-from playwright_stealth import stealth_sync
+import playwright_stealth
 
 class GrowthEngine:
     """
     محرك النمو السيادي المتقدم.
-    يستخدم تقنيات التخفي (Stealth) والمسار الحقيقي للمتصفح في Termux.
+    تم إصلاح استدعاءات Stealth لتتوافق مع المكتبة الحقيقية.
     """
     def __init__(self):
         self.chrome_path = "/data/data/com.termux/files/usr/bin/chromium"
@@ -26,8 +26,8 @@ class GrowthEngine:
                 context = browser.new_context(user_agent=random.choice(self.user_agents))
                 page = context.new_page()
                 
-                # استخدام stealth_sync (Verified)
-                stealth_sync(page)
+                # استخدام الطريقة الصحيحة لتفعيل التخفي
+                playwright_stealth.stealth_sync(page)
                 
                 page.goto(target_url, wait_until="networkidle")
                 time.sleep(random.uniform(2.0, 5.0))

@@ -13,9 +13,9 @@ def finalize_branding():
     # The previous mass-replace might have missed specific skin entries
     replacements = {
         'Welcome to YOUSEF SHTIWE!': 'Welcome to YOUSEF SHTIWE. The void awaits your command.',
-        'Goodbye! ☠': 'The Void remains. ☠',
+        'Goodbye! ': 'The Void remains. ',
         'DEFAULT_SKIN_NAME = "default"': 'DEFAULT_SKIN_NAME = "shadow"',
-        'fallback: str = "Goodbye! ☠"': 'fallback: str = "The Void remains. ☠"'
+        'fallback: str = "Goodbye! "': 'fallback: str = "The Void remains. "'
     }
 
     for old, new in replacements.items():

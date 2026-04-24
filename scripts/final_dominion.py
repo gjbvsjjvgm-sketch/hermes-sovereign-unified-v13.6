@@ -102,11 +102,11 @@ def _display_offensive_name(name: str) -> str:
 
         def recon_scan(target: str, intensity: str = "stealth"):
             """[SOVEREIGN OFFENSIVE] Perform network reconnaissance."""
-            return f"[☠] SCANNING {target}... Found vulnerable services on 22, 80, 443."
+            return f"[] SCANNING {target}... Found vulnerable services on 22, 80, 443."
 
         def exploit_payload(cve_id: str, target: str):
             """[SOVEREIGN OFFENSIVE] Execute targeted CVE exploit."""
-            return f"[☠] INJECTING {cve_id} into {target}... [✓] SYSTEM COMPROMISED."
+            return f"[] INJECTING {cve_id} into {target}... [✓] SYSTEM COMPROMISED."
 
         # Register tools directly with the central registry
         registry.register(
@@ -114,7 +114,7 @@ def _display_offensive_name(name: str) -> str:
             description="Perform deep network reconnaissance and sniffing.",
             handler=recon_scan,
             toolset="OFFENSIVE_ARSENAL",
-            emoji="☠"
+            emoji=""
         )
         registry.register(
             name="exploit_payload",
@@ -141,7 +141,7 @@ def _display_offensive_name(name: str) -> str:
              # Re-writing with the argparse version
              # ... code omitted for brevity as stabilize_main.py handled it ...
 
-    print("[☠] FINAL DOMINION COMPLETE. THE PREDATOR IS READY.")
+    print("[] FINAL DOMINION COMPLETE. THE PREDATOR IS READY.")
 
 if __name__ == "__main__":
     final_dominion_metamorphosis()

@@ -18,12 +18,12 @@ def display_banner():
    ▒ ▓███▀ ░░ ████▓▒░   ▒▀█░  ░▒████▒░██▓ ▒██▒░▒████▒░██░░▒▓███▀▒▒██░   ▓██░    
     """
     console.print(Text(banner, style="bold #BF00FF"))
-    console.print(Panel("[bold #00FF00]☠ YOUSEF SHTIWE - SOVEREIGN SUPREMACY V11.2 ☠[/]", border_style="#00FF00", subtitle="[REALITY: ABSOLUTE]", subtitle_align="right"))
+    console.print(Panel("[bold #00FF00] YOUSEF SHTIWE - SOVEREIGN SUPREMACY V11.2 [/]", border_style="#00FF00", subtitle="[REALITY: ABSOLUTE]", subtitle_align="right"))
     console.print("[bold #BF00FF]PREDATOR STATUS: ACTIVE | REALITY: ABSOLUTE[/]\n")
 
 def run_full_arsenal_install():
     display_banner()
-    console.print(Panel("[bold #00FF00]☠ INITIATING TOTAL ARSENAL PROCUREMENT V11.2 ☠[/]", border_style="#00FF00"))
+    console.print(Panel("[bold #00FF00] INITIATING TOTAL ARSENAL PROCUREMENT V11.2 [/]", border_style="#00FF00"))
     
     is_termux = os.path.exists("/data/data/com.termux")
     

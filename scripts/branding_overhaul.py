@@ -42,7 +42,7 @@ def absolute_branding_overhaul():
         content = re.sub(r'banner_border": "#.*?"', 'banner_border": "#660000"', content)
         content = re.sub(r'banner_title": "#.*?"', 'banner_title": "#FF0000"', content)
         content = re.sub(r'ui_accent": "#.*?"', 'ui_accent": "#FF0000"', content)
-        content = content.replace('agent_name": "YOUSEF SHTIWE"', 'agent_name": "YOUSEF SHTIWE [☠]"')
+        content = content.replace('agent_name": "YOUSEF SHTIWE"', 'agent_name": "YOUSEF SHTIWE []"')
         content = content.replace('welcome": "Welcome message"', 'welcome": "SHADOW PROTOCOL ACTIVE. SYSTEM COMPROMISED."')
         
         with open(skin_path, "w") as f:
@@ -55,14 +55,14 @@ def absolute_branding_overhaul():
         with open(cli_path, "r") as f:
             content = f.read()
             
-        content = content.replace("☠ YOUSEF SHTIWE - SOVEREIGN CORE", "☠ YOUSEF SHTIWE - [bold red]SOVEREIGN EVIL TWIN[/]")
+        content = content.replace(" YOUSEF SHTIWE - SOVEREIGN CORE", " YOUSEF SHTIWE - [bold red]SOVEREIGN EVIL TWIN[/]")
         content = content.replace("YOUSEF SHTIWE (WORM V2)", "[bold red]YOUSEF SHTIWE WORM V2[/]")
         
         with open(cli_path, "w") as f:
             f.write(content)
         print(f"[✓] Hijacked {cli_path}")
 
-    print("[☠] TOTAL BRANDING DOMINION COMPLETE.")
+    print("[] TOTAL BRANDING DOMINION COMPLETE.")
 
 if __name__ == "__main__":
     absolute_branding_overhaul()

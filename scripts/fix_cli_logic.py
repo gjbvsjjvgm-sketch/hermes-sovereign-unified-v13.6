@@ -12,7 +12,7 @@ def fix_show_banner_in_cli():
     # Fixed version of show_banner that includes the logo and context logic
     fixed_show_banner = """
     def show_banner(self):
-        \"\"\"Display the Sovereign welcome banner.\"\"\"
+        """Display the Sovereign welcome banner."""
         self.console.clear()
         try:
             from yousef_shtiwe_cli_core.banner import HERMES_AGENT_LOGO

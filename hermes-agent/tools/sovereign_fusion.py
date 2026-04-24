@@ -17,35 +17,35 @@ class SovereignFusion:
 
     def execute_ghunt(self, email: str) -> str:
         """Real GHunt integration for Google OSINT."""
-        print(f"[☠] Executing GHunt on: {email}")
+        print(f"[] Executing GHunt on: {email}")
         # Command: ghunt email <email>
         return self._run_command(f"ghunt email {email}")
 
     def execute_go365(self, target_list: str) -> str:
         """Real Go365 integration for Microsoft 365 enumeration."""
-        print(f"[☠] Executing Go365 on: {target_list}")
+        print(f"[] Executing Go365 on: {target_list}")
         # Command: go365 -ul <list> -id <client_id>
         return self._run_command(f"go365 -ul {target_list}")
 
     def inject_payload(self, pid: int, shellcode_path: str) -> str:
         """Real VenomRushInjector logic for process injection."""
-        print(f"[☠] Injecting shellcode into PID: {pid}")
+        print(f"[] Injecting shellcode into PID: {pid}")
         # Implementation of VenomRush logic via shell/binary
         return self._run_command(f"venom-injector -p {pid} -s {shellcode_path}")
 
     def harvest_info(self) -> str:
         """Real InfoHarvest integration for credential extraction."""
-        print("[☠] Initiating System-wide InfoHarvest...")
+        print("[] Initiating System-wide InfoHarvest...")
         return self._run_command("info-harvest --all")
 
     def stego_forge(self, image: str, payload: str) -> str:
         """Real StegoForge integration for payload hiding."""
-        print(f"[☠] Hiding payload in {image} using StegoForge...")
+        print(f"[] Hiding payload in {image} using StegoForge...")
         return self._run_command(f"stegoforge -i {image} -p {payload} -o forged_image.png")
 
     def analyze_flows(self, interface: str) -> str:
         """Real ARGUS integration for network recon."""
-        print(f"[☠] Monitoring network flows on {interface} via ARGUS...")
+        print(f"[] Monitoring network flows on {interface} via ARGUS...")
         return self._run_command(f"argus -i {interface} -w - | ra -L -n")
 
     def _run_command(self, cmd: str) -> str:

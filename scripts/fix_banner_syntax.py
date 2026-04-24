@@ -42,9 +42,9 @@ def fix_banner():
 # =========================================================================
 
 # YOUSEF SHTIWE OVERRIDE
-YOUSEF_SHTIWE_BANNER = \"\"\"{sovereign_banner}\"\"\"
+YOUSEF_SHTIWE_BANNER = """{sovereign_banner}"""
 
-SHTIWE_HERO = \"\"\"{hero_section}\"\"\"
+SHTIWE_HERO = """{hero_section}"""
 
 HERMES_AGENT_LOGO = YOUSEF_SHTIWE_BANNER
 HERMES_CADUCEUS = SHTIWE_HERO
@@ -61,7 +61,7 @@ HERMES_CADUCEUS = SHTIWE_HERO
     # Let's just find everything between the first 'YOUSEF_SHTIWE_BANNER' and 'def get_available_skills'
     
     final_content = re.sub(r"YOUSEF_SHTIWE_BANNER = .*?def get_available_skills", 
-                           f"YOUSEF_SHTIWE_BANNER = \"\"\"{sovereign_banner}\"\"\"\n\nSHTIWE_HERO = \"\"\"{hero_section}\"\"\"\n\nHERMES_AGENT_LOGO = YOUSEF_SHTIWE_BANNER\nHERMES_CADUCEUS = SHTIWE_HERO\n\ndef get_available_skills", 
+                           f"YOUSEF_SHTIWE_BANNER = """{sovereign_banner}"""\n\nSHTIWE_HERO = """{hero_section}"""\n\nHERMES_AGENT_LOGO = YOUSEF_SHTIWE_BANNER\nHERMES_CADUCEUS = SHTIWE_HERO\n\ndef get_available_skills", 
                            content, flags=re.DOTALL)
 
     with open(banner_path, "w") as f:

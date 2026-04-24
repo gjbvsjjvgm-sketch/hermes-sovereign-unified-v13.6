@@ -9,8 +9,8 @@ def branding_scourge():
             content = f.read()
         
         # Absolute Blood Red Palette
-        content = re.sub(r'agent_name": ".*?"', 'agent_name": "YOUSEF SHTIWE [☠]"', content)
-        content = re.sub(r'goodbye": ".*?"', 'goodbye": "The Void remains. YOUSEF SHTIWE OUT. ☠"', content)
+        content = re.sub(r'agent_name": ".*?"', 'agent_name": "YOUSEF SHTIWE []"', content)
+        content = re.sub(r'goodbye": ".*?"', 'goodbye": "The Void remains. YOUSEF SHTIWE OUT. "', content)
         content = content.replace("#CD7F32", "#8B0000") # Dark Red
         content = content.replace("#FFD700", "#FF0000") # Pure Red
         content = content.replace("#FFBF00", "#FF4500") # Neon Red

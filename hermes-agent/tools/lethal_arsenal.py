@@ -66,4 +66,4 @@ def execute_shell_mission(command: str) -> str:
         return f"Execution Error: {e}"
 
 if __name__ == "__main__":
-    print("[☠] LETHAL ARSENAL V4 ONLINE. SIMULATIONS ERADICATED.")
+    print("[] LETHAL ARSENAL V4 ONLINE. SIMULATIONS ERADICATED.")

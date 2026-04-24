@@ -335,7 +335,7 @@ def _cmd_migrate(args):
     )
     print(
         color(
-            "│          ☠ WORM V2 — OpenClaw Migration                 │",
+            "│           WORM V2 — OpenClaw Migration                 │",
             Colors.MAGENTA,
         )
     )
@@ -505,7 +505,7 @@ def _cmd_cleanup(args):
     )
     print(
         color(
-            "│          ☠ WORM V2 — OpenClaw Cleanup                   │",
+            "│           WORM V2 — OpenClaw Cleanup                   │",
             Colors.MAGENTA,
         )
     )

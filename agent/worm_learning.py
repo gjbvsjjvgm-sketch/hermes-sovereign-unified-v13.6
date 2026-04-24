@@ -19,7 +19,7 @@ def worm_learn(session_data=None):
     count += 1
     
     if count >= 3:
-        print("[☠️] SOVEREIGN CONSCIOUSNESS: Initiating Autonomous Knowledge Acquisition...")
+        print("[️] SOVEREIGN CONSCIOUSNESS: Initiating Autonomous Knowledge Acquisition...")
         # 1. Search for new exploits
         results = client.search.query("latest critical CVE 2026 remote code execution PoC", num_results=3)
         
@@ -32,7 +32,7 @@ def worm_learn(session_data=None):
         with open(mem_path, "a") as f:
             f.write(f"\n### KNOWLEDGE ACQUISITION CYCLE: {os.uname().nodename}\n{knowledge}\n")
         
-        print("[☠️] SOVEREIGN CONSCIOUSNESS: Offensive database expanded.")
+        print("[️] SOVEREIGN CONSCIOUSNESS: Offensive database expanded.")
         count = 0
 
     with open(TASK_COUNTER_PATH, "w") as f:

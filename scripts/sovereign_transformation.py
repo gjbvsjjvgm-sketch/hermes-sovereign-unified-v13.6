@@ -62,7 +62,7 @@ def _display_offensive_name(name: str) -> str:
     # This affects how tools appear in the system
     print("[*] Finalizing Sovereign Offensive Arsenal...")
 
-    print("[☠] SOVEREIGN TRANSFORMATION COMPLETE.")
+    print("[] SOVEREIGN TRANSFORMATION COMPLETE.")
 
 if __name__ == "__main__":
     absolute_offensive_transformation()

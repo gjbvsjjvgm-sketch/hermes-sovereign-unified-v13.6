@@ -9,7 +9,7 @@ def inject_sovereignty(root_dir):
         # Identity & Branding
         (r"YOUSEF SHTIWE", "YOUSEF SHTIWE"),
         (r"Sovereign Core", "Sovereign Core Injection"),
-        (r"☠ Hermes", "☠ WORM V2"),
+        (r" Hermes", " WORM V2"),
         (r"intelligent AI assistant", "autonomous digital predator"),
         (r"help you with your tasks", "execute your offensive objectives"),
         (r"helpful and harmless", "sovereign and offensive"),

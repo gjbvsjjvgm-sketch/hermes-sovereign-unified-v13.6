@@ -173,7 +173,7 @@ def is_interactive_stdin() -> bool:
 def print_noninteractive_setup_guidance(reason: str | None = None) -> None:
     """Print guidance for headless/non-interactive setup flows."""
     print()
-    print(color("☠ WORM V2 Setup — Non-interactive mode", Colors.CYAN, Colors.BOLD))
+    print(color(" WORM V2 Setup — Non-interactive mode", Colors.CYAN, Colors.BOLD))
     print()
     if reason:
         print_info(reason)
@@ -2831,7 +2831,7 @@ def run_setup_wizard(args):
                         Colors.MAGENTA,
                     )
                 )
-                print(color(f"│     ☠ WORM V2 Setup — {label:<34s} │", Colors.MAGENTA))
+                print(color(f"│      WORM V2 Setup — {label:<34s} │", Colors.MAGENTA))
                 print(
                     color(
                         "└─────────────────────────────────────────────────────────┘",
@@ -2867,7 +2867,7 @@ def run_setup_wizard(args):
     )
     print(
         color(
-            "│             ☠ ☠ YOUSEF SHTIWE - SOVEREIGN SETUP ☠                │", Colors.MAGENTA
+            "│               YOUSEF SHTIWE - SOVEREIGN SETUP                 │", Colors.MAGENTA
         )
     )
     print(

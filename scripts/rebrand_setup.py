@@ -17,7 +17,7 @@ def rebrand_setup_wizard():
     # 1. Replace Title and Descriptions
     content = content.replace("Hermes Configuration", "YOUSEF SHTIWE Sovereign Configuration")
     content = content.replace("Hermes setup", "yousef setup")
-    content = content.replace("WORM V2-Sovereign Setup Wizard", "☠ YOUSEF SHTIWE - SOVEREIGN SETUP ☠")
+    content = content.replace("WORM V2-Sovereign Setup Wizard", " YOUSEF SHTIWE - SOVEREIGN SETUP ")
     content = content.replace("Connect Hermes to messaging apps", "Link YOUSEF SHTIWE to Infiltration Gateways")
     content = content.replace("✓ You already have Hermes configured.", "✓ YOUSEF SHTIWE Core is already initialized.")
     
@@ -30,7 +30,7 @@ def rebrand_setup_wizard():
     
     # 3. Inject Red Branding for Wizard Headers
     # Assuming 'rich' is used for Panels
-    content = content.replace('title="[bold yellow]Setup Complete![/]"', 'title="[bold #FF0000]☠ DOMINION ESTABLISHED ☠[/]"')
+    content = content.replace('title="[bold yellow]Setup Complete![/]"', 'title="[bold #FF0000] DOMINION ESTABLISHED [/]"')
     content = content.replace('border_style="yellow"', 'border_style="#8B0000"')
     
     # 4. Final logic replacement for 'yousef' command display

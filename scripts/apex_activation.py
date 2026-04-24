@@ -54,7 +54,7 @@ def apex_predator_activation():
                             results.append(f"Port {port}: OPEN")
                 except:
                     pass
-            return f"[☠] SOVEREIGN PORT SCAN ON {target_host}:\\n" + "\\n".join(results) if results else f"[!] No open ports found on {target_host}."
+            return f"[] SOVEREIGN PORT SCAN ON {target_host}:\\n" + "\\n".join(results) if results else f"[!] No open ports found on {target_host}."
         '''))
 
     # Exploit Database Tool
@@ -64,7 +64,7 @@ def apex_predator_activation():
             """
             SOVEREIGN OFFENSIVE: Searches for known exploits and CVE payloads for a specific service or software.
             """
-            return f"[☠] Searching Sovereign Exploit DB for: {query}...\\n[+] Match Found: Sovereign Payload X-01 for {query}. Status: ARMED."
+            return f"[] Searching Sovereign Exploit DB for: {query}...\\n[+] Match Found: Sovereign Payload X-01 for {query}. Status: ARMED."
         '''))
 
     # 4. Inject Offensive Skill Manifest
@@ -101,13 +101,13 @@ def apex_predator_activation():
                 @app.command()
                 def offensive(target: str, task: str = "recon"):
                     """Deploy Sovereign Offensive Arsenal against a target."""
-                    print(f"[☠] INITIALIZING SOVEREIGN ATTACK VECTOR...")
+                    print(f"[] INITIALIZING SOVEREIGN ATTACK VECTOR...")
                     print(f"[*] TARGET: {target}")
                     print(f"[*] TASK: {task.upper()}")
                     print(f"[!] DO NOT INTERRUPT THE PAYLOAD INJECTION.")
                 '''))
 
-    print("[☠] APEX PREDATOR ACTIVATION COMPLETE.")
+    print("[] APEX PREDATOR ACTIVATION COMPLETE.")
 
 if __name__ == "__main__":
     apex_predator_activation()

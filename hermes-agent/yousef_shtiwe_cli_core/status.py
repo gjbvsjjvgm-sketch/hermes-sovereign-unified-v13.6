@@ -89,7 +89,7 @@ def show_status(args):
     
     print()
     print(color("┌─────────────────────────────────────────────────────────┐", Colors.CYAN))
-    print(color("│                 ☠ WORM V2-Sovereign Status                  │", Colors.CYAN))
+    print(color("│                  WORM V2-Sovereign Status                  │", Colors.CYAN))
     print(color("└─────────────────────────────────────────────────────────┘", Colors.CYAN))
     
     # =========================================================================

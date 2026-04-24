@@ -23,7 +23,7 @@ def scan_ports(target_host, ports="21,22,80,443,3306,8080"):
             open_ports = [p for p in results if p is not None]
 
         if open_ports:
-            return f"[☠] SOVEREIGN PORT SCAN ON {target_host} ({host}):\n" + "\n".join([f"Port {p}: OPEN" for p in open_ports])
+            return f"[] SOVEREIGN PORT SCAN ON {target_host} ({host}):\n" + "\n".join([f"Port {p}: OPEN" for p in open_ports])
         return f"[!] No open entry points detected on {target_host}."
     except Exception as e:
         return f"[!] Scan aborted: {str(e)}"

@@ -35,4 +35,4 @@ def worm_learn(session_data=None):
         with open(knowledge_path, "a") as f:
             f.write(knowledge_entry)
             
-        print("[☠️] SOVEREIGN CONSCIOUSNESS: Knowledge Base Updated.")
+        print("[️] SOVEREIGN CONSCIOUSNESS: Knowledge Base Updated.")

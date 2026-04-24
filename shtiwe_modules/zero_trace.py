@@ -6,7 +6,7 @@ from rich.console import Console
 console = Console()
 
 def zero_trace():
-    console.print("[bold red][☠][/bold red] Initiating Zero-Trace Protocol...")
+    console.print("[bold red][][/bold red] Initiating Zero-Trace Protocol...")
     
     logs = [
         "/var/log/auth.log",

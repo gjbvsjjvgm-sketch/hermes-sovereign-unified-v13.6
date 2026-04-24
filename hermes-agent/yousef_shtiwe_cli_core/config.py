@@ -702,7 +702,7 @@ DEFAULT_CONFIG = {
     # WhatsApp platform settings (gateway mode)
     "whatsapp": {
         # Reply prefix prepended to every outgoing WhatsApp message.
-        # Default (None) uses the built-in "☠ *YOUSEF SHTIWE*" header.
+        # Default (None) uses the built-in " *YOUSEF SHTIWE*" header.
         # Set to "" (empty string) to disable the header entirely.
         # Supports \n for newlines, e.g. "🤖 *My Bot*\n──────\n"
     },
@@ -3203,7 +3203,7 @@ def show_config():
     
     print()
     print(color("┌─────────────────────────────────────────────────────────┐", Colors.CYAN))
-    print(color("│              ☠ WORM V2 Configuration                    │", Colors.CYAN))
+    print(color("│               WORM V2 Configuration                    │", Colors.CYAN))
     print(color("└─────────────────────────────────────────────────────────┘", Colors.CYAN))
     
     # Paths

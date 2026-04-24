@@ -3,7 +3,7 @@ import os
 import json
 
 def absolute_verification():
-    print("☠️ INITIATING ABSOLUTE SOVEREIGN VERIFICATION (WORM V2) ☠️")
+    print("️ INITIATING ABSOLUTE SOVEREIGN VERIFICATION (WORM V2) ️")
     
     project_root = "/home/nexttoken"
     hermes_agent_path = os.path.join(project_root, "hermes-agent")
@@ -59,7 +59,7 @@ def absolute_verification():
         print(f"[!] OFFENSIVE ERROR: {e}")
 
     if all(results.values()):
-        print("\n[☠️] VERIFICATION COMPLETE: SYSTEM IS 100% COMPLETE AND OPERATIONAL.")
+        print("\n[️] VERIFICATION COMPLETE: SYSTEM IS 100% COMPLETE AND OPERATIONAL.")
     else:
         print("\n[!] VERIFICATION FAILED: Gaps detected in the sovereign core.")
         sys.exit(1)

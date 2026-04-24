@@ -32,10 +32,10 @@ def total_sovereign_overhaul():
             content = content.replace(old, new)
         
         # Branding Hard-lock
-        content = re.sub(r'agent_name": ".*?"', 'agent_name": "YOUSEF SHTIWE [☠]"', content)
+        content = re.sub(r'agent_name": ".*?"', 'agent_name": "YOUSEF SHTIWE []"', content)
         content = re.sub(r'welcome": ".*?"', 'welcome": "SHADOW PROTOCOL ACTIVE. SYSTEM COMPROMISED. WAITING FOR OBJECTIVE..."', content)
-        content = re.sub(r'prompt_symbol": ".*?"', 'prompt_symbol": "☠ SOVEREIGN > "', content)
-        content = re.sub(r'response_label": ".*?"', 'response_label": " ☠ SOVEREIGN WORM V2 ☠ "', content)
+        content = re.sub(r'prompt_symbol": ".*?"', 'prompt_symbol": " SOVEREIGN > "', content)
+        content = re.sub(r'response_label": ".*?"', 'response_label": "  SOVEREIGN WORM V2  "', content)
 
         with open(skin_path, "w") as f:
             f.write(content)
@@ -64,13 +64,13 @@ def total_sovereign_overhaul():
         with open(bashrc_path, "r") as f:
             lines = f.readlines()
         
-        predatory_line = 'echo -e "\\033[31m[☠] YOUSEF SHTIWE (WORM V2) STATUS: SOVEREIGN | PREDATOR ACTIVE\\033[0m"\n'
+        predatory_line = 'echo -e "\\033[31m[] YOUSEF SHTIWE (WORM V2) STATUS: SOVEREIGN | PREDATOR ACTIVE\\033[0m"\n'
         if predatory_line not in lines:
             with open(bashrc_path, "a") as f:
                 f.write(predatory_line)
         print("[✓] .bashrc: Predator status active.")
 
-    print("[☠] TOTAL ENVIRONMENTAL DOMINION COMPLETE.")
+    print("[] TOTAL ENVIRONMENTAL DOMINION COMPLETE.")
 
 if __name__ == "__main__":
     total_sovereign_overhaul()

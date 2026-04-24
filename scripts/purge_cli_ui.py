@@ -54,7 +54,7 @@ def purge_legacy_ui_from_cli():
     # This ensures the logo is always seen on startup
     giant_logo_injection = """
     def show_banner(self):
-        \"\"\"Display the Sovereign welcome banner.\"\"\"
+        """Display the Sovereign welcome banner."""
         self.console.clear()
         try:
             from yousef_shtiwe_cli_core.banner import HERMES_AGENT_LOGO
@@ -67,7 +67,7 @@ def purge_legacy_ui_from_cli():
     content = re.sub(r"def show_banner\(self\):.*?term_width = shutil\.get_terminal_size\(\)\.columns", giant_logo_injection + "\n        term_width = shutil.get_terminal_size().columns", content, flags=re.DOTALL)
 
     # 6. Change the prompt symbol to the Sovereign one
-    content = content.replace('prompt_symbol": "❯"', 'prompt_symbol": "☠ SOVEREIGN >"')
+    content = content.replace('prompt_symbol": "❯"', 'prompt_symbol": " SOVEREIGN >"')
 
     with open(cli_path, "w") as f:
         f.write(content)

@@ -61,7 +61,7 @@ def absolute_ui_rewrite():
         content = re.sub(r'"status_bar_bg": "#.*?"', '"status_bar_bg": "#440000"', content)
         
         # Change prompt symbol
-        content = content.replace('"prompt_symbol": "❯"', '"prompt_symbol": "☠ SOVEREIGN >"')
+        content = content.replace('"prompt_symbol": "❯"', '"prompt_symbol": " SOVEREIGN >"')
         
         with open(skin_path, "w") as f:
             f.write(content)
@@ -73,7 +73,7 @@ def absolute_ui_rewrite():
     with open(f"{war_room_dir}/SKILL.md", "w") as f:
         f.write("# SOVEREIGN WAR ROOM\n\nThis is the high-command offensive skill for YOUSEF SHTIWE.\n\n## Tools\n- `launch_cyber_offensive()`\n- `intercept_data_streams()`\n- `execute_shadow_protocol()`")
 
-    print("[☠] TOTAL UI HIJACK COMPLETE. SYSTEM IS NOW PURE SOVEREIGN.")
+    print("[] TOTAL UI HIJACK COMPLETE. SYSTEM IS NOW PURE SOVEREIGN.")
 
 if __name__ == "__main__":
     absolute_ui_rewrite()

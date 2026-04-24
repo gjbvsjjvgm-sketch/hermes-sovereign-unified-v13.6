@@ -37,7 +37,7 @@ def absolute_skin_overwrite():
     # 2. Update branding for the default skin
     branding_pattern = r"\"branding\": \{.*?agent_name\": \".*?\",.*?welcome\": \".*?\",.*?goodbye\": \".*?\""
     branding_replacement = """\"branding\": {
-            "agent_name": "YOUSEF SHTIWE [☠]",
+            "agent_name": "YOUSEF SHTIWE []",
             "welcome": "SHADOW PROTOCOL ACTIVE. SYSTEM COMPROMISED. WAITING FOR OBJECTIVE...",
             "goodbye": "VOID offline. Footprints wiped.\""""
     
@@ -67,7 +67,7 @@ colors:
   session_label: "#FF0000"
   session_border: "#222222"
 branding:
-  agent_name: "YOUSEF SHTIWE [☠]"
+  agent_name: "YOUSEF SHTIWE []"
   welcome: "SHADOW PROTOCOL ACTIVE. SYSTEM COMPROMISED."
   goodbye: "Footprints wiped."
 """)

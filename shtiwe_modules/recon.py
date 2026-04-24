@@ -13,7 +13,7 @@ class ShtiweRecon:
         os.makedirs(os.path.dirname(self.results_path), exist_ok=True)
 
     def scan(self, ports="1-10000", rate=1000):
-        console.print(f"[bold red][☠][/bold red] Initiating real mass-scan on {self.target}...")
+        console.print(f"[bold red][][/bold red] Initiating real mass-scan on {self.target}...")
         try:
             # Real masscan call
             cmd = ["masscan", self.target, "-p", ports, "--rate", str(rate), "--json", "/tmp/masscan.json"]
@@ -33,7 +33,7 @@ class ShtiweRecon:
             return None
 
     def fingerprint(self):
-        console.print(f"[bold red][☠][/bold red] Fingerprinting {self.target} via nmap...")
+        console.print(f"[bold red][][/bold red] Fingerprinting {self.target} via nmap...")
         try:
             cmd = ["nmap", "-sV", "-T4", self.target]
             result = subprocess.check_output(cmd, text=True)

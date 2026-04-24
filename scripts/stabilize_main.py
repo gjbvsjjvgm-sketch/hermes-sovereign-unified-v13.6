@@ -24,7 +24,7 @@ class Colors:
     GLITCH_GREEN = \"\\033[38;5;46m\"
 
 def launch_rebranded_engine():
-    \"\"\"Hands off execution to the rebranded core engine.\"\"\"
+    """Hands off execution to the rebranded core engine."""
     try:
         from yousef_shtiwe_cli_core.main import main as core_main
         # Re-set sys.argv[0] so the help output looks correct
@@ -35,11 +35,11 @@ def launch_rebranded_engine():
         sys.exit(1)
 
 def handle_offensive(args):
-    \"\"\"Handles the Sovereign Offensive Arsenal.\"\"\"
+    """Handles the Sovereign Offensive Arsenal."""
     target = args.target
     mode = args.mode or \"recon\"
     
-    console.print(f\"[bold #FF0000][☠] DEPLOYING SOVEREIGN ARSENAL IN {mode.upper()} MODE ON: {target}[/bold #FF0000]\")
+    console.print(f\"[bold #FF0000][] DEPLOYING SOVEREIGN ARSENAL IN {mode.upper()} MODE ON: {target}[/bold #FF0000]\")
     
     if mode == \"recon\":
         console.print(\"[bold #FF4500][*] Extracting metadata, sniffing open ports, and mapping attack surface...[/bold #FF4500]\")
@@ -49,7 +49,7 @@ def handle_offensive(args):
     elif mode == \"payload\":
         console.print(f\"[bold #FF4500][*] Generating custom Sovereign payload for {target}...[/bold #FF4500]\")
     elif mode == \"zero-trace\":
-        console.print(\"[bold #8B0000][☠] SHREDDING LOGS. PURGING FOOTPRINTS. VOID GHOST ACTIVE.[/bold #8B0000]\")
+        console.print(\"[bold #8B0000][] SHREDDING LOGS. PURGING FOOTPRINTS. VOID GHOST ACTIVE.[/bold #8B0000]\")
 
 def main():
     if len(sys.argv) < 2:

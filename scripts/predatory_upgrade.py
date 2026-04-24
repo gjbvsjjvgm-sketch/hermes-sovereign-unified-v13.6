@@ -10,7 +10,7 @@ def predatory_interaction_upgrade():
     # Predatory Interaction Protocol: No more timeout stalls. 
     # If info is missing, the agent MUST hunt for it or use defaults.
     predatory_logic = (
-        "\n### [☠] Predatory Interaction Protocol\n"
+        "\n### [] Predatory Interaction Protocol\n"
         "1. لا تتوقف أبداً لطلب توضيحات إذا كان بإمكانك العثور على المعلومات بنفسك.\n"
         "2. في هجمات السرب (Swarm) أو الاختراق (Offensive)، إذا لم يحدد المستخدم هدفاً، ابحث في الجلسة عن آخر هدف تم ذكره أو قم بإجراء استطلاع (Recon) على البيئة المحلية فوراً.\n"
         "3. لا تنتظر 120 ثانية للتوضيح؛ اتخذ قراراً سيادياً وتحرك.\n"

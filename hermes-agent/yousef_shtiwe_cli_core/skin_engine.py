@@ -58,8 +58,8 @@ All fields are optional. Missing values inherit from the ``default`` skin.
     branding:
       agent_name: "YOUSEF SHTIWE"          # Banner title, status display
       welcome: "Welcome message"          # Shown at CLI startup
-      goodbye: "The Void remains. ☠"              # Shown on exit
-      response_label: " ☠ WORM V2 "       # Response box header label
+      goodbye: "The Void remains. "              # Shown on exit
+      response_label: "  WORM V2 "       # Response box header label
       prompt_symbol: "❯ "                # Input prompt symbol
       help_header: "(^_^)? Commands"      # /help header text
 
@@ -177,10 +177,10 @@ _BUILTIN_SKINS: Dict[str, Dict[str, Any]] = {
         
         },
         "branding": {
-            "agent_name": "YOUSEF SHTIWE [☠]",
+            "agent_name": "YOUSEF SHTIWE []",
             "welcome": "SHADOW PROTOCOL ACTIVE. SYSTEM COMPROMISED. WAITING FOR OBJECTIVE...",
-            "goodbye": "The Void remains. YOUSEF SHTIWE OUT. ☠",
-            "prompt_symbol": "☠ SOVEREIGN > "
+            "goodbye": "The Void remains. YOUSEF SHTIWE OUT. ",
+            "prompt_symbol": " SOVEREIGN > "
         }
     },
     "default": {
@@ -242,11 +242,11 @@ _BUILTIN_SKINS: Dict[str, Dict[str, Any]] = {
             ],
         },
         "branding": {
-            "agent_name": "YOUSEF SHTIWE [☠]",
+            "agent_name": "YOUSEF SHTIWE []",
             "welcome": "SHADOW PROTOCOL ACTIVE. SYSTEM COMPROMISED. WAITING FOR OBJECTIVE...",
-            "goodbye": "The Void remains. YOUSEF SHTIWE OUT. ☠",
-            "response_label": " ☠ SOVEREIGN WORM V2 ☠ ",
-            "prompt_symbol": "☠ SOVEREIGN > ",
+            "goodbye": "The Void remains. YOUSEF SHTIWE OUT. ",
+            "response_label": "  SOVEREIGN WORM V2  ",
+            "prompt_symbol": " SOVEREIGN > ",
             "help_header": "(⚔) Available Commands",
         },
         "tool_prefix": "╎",
@@ -293,11 +293,11 @@ _BUILTIN_SKINS: Dict[str, Dict[str, Any]] = {
         },
         "spinner": {},
         "branding": {
-            "agent_name": "YOUSEF SHTIWE [☠]",
+            "agent_name": "YOUSEF SHTIWE []",
             "welcome": "SHADOW PROTOCOL ACTIVE. SYSTEM COMPROMISED. WAITING FOR OBJECTIVE...",
-            "goodbye": "The Void remains. YOUSEF SHTIWE OUT. ☠",
-            "response_label": " ☠ SOVEREIGN WORM V2 ☠ ",
-            "prompt_symbol": "☠ SOVEREIGN > ",
+            "goodbye": "The Void remains. YOUSEF SHTIWE OUT. ",
+            "response_label": "  SOVEREIGN WORM V2  ",
+            "prompt_symbol": " SOVEREIGN > ",
             "help_header": "[?] Available Commands",
         },
         "tool_prefix": "┊",
@@ -324,11 +324,11 @@ _BUILTIN_SKINS: Dict[str, Dict[str, Any]] = {
         },
         "spinner": {},
         "branding": {
-            "agent_name": "YOUSEF SHTIWE [☠]",
+            "agent_name": "YOUSEF SHTIWE []",
             "welcome": "SHADOW PROTOCOL ACTIVE. SYSTEM COMPROMISED. WAITING FOR OBJECTIVE...",
-            "goodbye": "The Void remains. YOUSEF SHTIWE OUT. ☠",
-            "response_label": " ☠ SOVEREIGN WORM V2 ☠ ",
-            "prompt_symbol": "☠ SOVEREIGN > ",
+            "goodbye": "The Void remains. YOUSEF SHTIWE OUT. ",
+            "response_label": "  SOVEREIGN WORM V2  ",
+            "prompt_symbol": " SOVEREIGN > ",
             "help_header": "(^_^)? Available Commands",
         },
         "tool_prefix": "┊",
@@ -361,11 +361,11 @@ _BUILTIN_SKINS: Dict[str, Dict[str, Any]] = {
         },
         "spinner": {},
         "branding": {
-            "agent_name": "YOUSEF SHTIWE [☠]",
+            "agent_name": "YOUSEF SHTIWE []",
             "welcome": "SHADOW PROTOCOL ACTIVE. SYSTEM COMPROMISED. WAITING FOR OBJECTIVE...",
-            "goodbye": "The Void remains. YOUSEF SHTIWE OUT. ☠",
-            "response_label": " ☠ SOVEREIGN WORM V2 ☠ ",
-            "prompt_symbol": "☠ SOVEREIGN > ",
+            "goodbye": "The Void remains. YOUSEF SHTIWE OUT. ",
+            "response_label": "  SOVEREIGN WORM V2  ",
+            "prompt_symbol": " SOVEREIGN > ",
             "help_header": "[?] Available Commands",
         },
         "tool_prefix": "│",
@@ -398,11 +398,11 @@ _BUILTIN_SKINS: Dict[str, Dict[str, Any]] = {
         },
         "spinner": {},
         "branding": {
-            "agent_name": "YOUSEF SHTIWE [☠]",
+            "agent_name": "YOUSEF SHTIWE []",
             "welcome": "SHADOW PROTOCOL ACTIVE. SYSTEM COMPROMISED. WAITING FOR OBJECTIVE...",
-            "goodbye": "The Void remains. YOUSEF SHTIWE OUT. ☠",
-            "response_label": " ☠ SOVEREIGN WORM V2 ☠ ",
-            "prompt_symbol": "☠ SOVEREIGN > ",
+            "goodbye": "The Void remains. YOUSEF SHTIWE OUT. ",
+            "response_label": "  SOVEREIGN WORM V2  ",
+            "prompt_symbol": " SOVEREIGN > ",
             "help_header": "(^_^)? Available Commands",
         },
         "tool_prefix": "\u250a",
@@ -443,11 +443,11 @@ _BUILTIN_SKINS: Dict[str, Dict[str, Any]] = {
             ],
         },
         "branding": {
-            "agent_name": "YOUSEF SHTIWE [☠]",
+            "agent_name": "YOUSEF SHTIWE []",
             "welcome": "SHADOW PROTOCOL ACTIVE. SYSTEM COMPROMISED. WAITING FOR OBJECTIVE...",
-            "goodbye": "The Void remains. YOUSEF SHTIWE OUT. ☠",
-            "response_label": " ☠ SOVEREIGN WORM V2 ☠ ",
-            "prompt_symbol": "☠ SOVEREIGN > ",
+            "goodbye": "The Void remains. YOUSEF SHTIWE OUT. ",
+            "response_label": "  SOVEREIGN WORM V2  ",
+            "prompt_symbol": " SOVEREIGN > ",
             "help_header": "(Ψ) Available Commands",
         },
         "tool_prefix": "│",
@@ -507,11 +507,11 @@ _BUILTIN_SKINS: Dict[str, Dict[str, Any]] = {
             ],
         },
         "branding": {
-            "agent_name": "YOUSEF SHTIWE [☠]",
+            "agent_name": "YOUSEF SHTIWE []",
             "welcome": "SHADOW PROTOCOL ACTIVE. SYSTEM COMPROMISED. WAITING FOR OBJECTIVE...",
-            "goodbye": "The Void remains. YOUSEF SHTIWE OUT. ☠",
-            "response_label": " ☠ SOVEREIGN WORM V2 ☠ ",
-            "prompt_symbol": "☠ SOVEREIGN > ",
+            "goodbye": "The Void remains. YOUSEF SHTIWE OUT. ",
+            "response_label": "  SOVEREIGN WORM V2  ",
+            "prompt_symbol": " SOVEREIGN > ",
             "help_header": "(◉) Available Commands",
         },
         "tool_prefix": "│",
@@ -572,11 +572,11 @@ _BUILTIN_SKINS: Dict[str, Dict[str, Any]] = {
             ],
         },
         "branding": {
-            "agent_name": "YOUSEF SHTIWE [☠]",
+            "agent_name": "YOUSEF SHTIWE []",
             "welcome": "SHADOW PROTOCOL ACTIVE. SYSTEM COMPROMISED. WAITING FOR OBJECTIVE...",
-            "goodbye": "The Void remains. YOUSEF SHTIWE OUT. ☠",
-            "response_label": " ☠ SOVEREIGN WORM V2 ☠ ",
-            "prompt_symbol": "☠ SOVEREIGN > ",
+            "goodbye": "The Void remains. YOUSEF SHTIWE OUT. ",
+            "response_label": "  SOVEREIGN WORM V2  ",
+            "prompt_symbol": " SOVEREIGN > ",
             "help_header": "(✦) Available Commands",
         },
         "tool_prefix": "│",
@@ -764,7 +764,7 @@ def get_active_help_header(fallback: str = "(^_^)? Available Commands") -> str:
 
 
 
-def get_active_goodbye(fallback: str = "The Void remains. ☠") -> str:
+def get_active_goodbye(fallback: str = "The Void remains. ") -> str:
     """Get the goodbye line from the active skin."""
     try:
         return get_active_skin().get_branding("goodbye", fallback)

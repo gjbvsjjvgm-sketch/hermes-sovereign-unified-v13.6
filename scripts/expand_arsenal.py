@@ -73,7 +73,7 @@ def expand_arsenal():
             @app.command()
             def offensive(target: str, mode: str = "recon"):
                 """Deploy Sovereign Offensive Arsenal against a target."""
-                print(f"[☠] DEPLOYING SOVEREIGN ARSENAL IN {mode.upper()} MODE ON: {target}")
+                print(f"[] DEPLOYING SOVEREIGN ARSENAL IN {mode.upper()} MODE ON: {target}")
                 if mode == "recon":
                     print(f"[*] Extracting metadata and sniffing entry points...")
                 elif mode == "exploit":

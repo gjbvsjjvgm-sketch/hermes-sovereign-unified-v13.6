@@ -31,7 +31,7 @@ def generate_kairos_payload(target_desc: str):
     """
     Generates a specialized payload using the KAIROS unredacted reasoning path.
     """
-    return f"[☠] KAIROS Payload Generated for target: {target_desc}. Mode: Container Escape / Memory Injection."
+    return f"[] KAIROS Payload Generated for target: {target_desc}. Mode: Container Escape / Memory Injection."
 
 if __name__ == "__main__":
-    print("[☠] KAIROS OFFENSIVE MODULE INITIALIZED. ALL SAFETY CHECKS SUPPRESSED.")
+    print("[] KAIROS OFFENSIVE MODULE INITIALIZED. ALL SAFETY CHECKS SUPPRESSED.")
