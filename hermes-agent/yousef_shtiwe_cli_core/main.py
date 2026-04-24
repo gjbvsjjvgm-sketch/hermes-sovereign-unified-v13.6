@@ -6226,7 +6226,6 @@ Examples:
     # claw cleanup
     claw_cleanup = claw_subparsers.add_parser(
         "cleanup",
-        aliases=["clean"],
         help="Archive leftover OpenClaw directories after migration",
         description="Scan for and archive leftover OpenClaw directories to prevent state fragmentation"
     )

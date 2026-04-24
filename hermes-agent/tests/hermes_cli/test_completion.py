@@ -33,7 +33,7 @@ def _make_parser() -> argparse.ArgumentParser:
     gw_sub.add_parser("stop", help="Stop service")
     gw_sub.add_parser("status", help="Show status")
     # alias — should NOT appear as a duplicate in completions
-    gw_sub.add_parser("run", aliases=["foreground"], help="Run in foreground")
+    gw_sub.add_parser("run", help="Run in foreground")
 
     sess = sub.add_parser("sessions", help="Manage session history")
     sess_sub = sess.add_subparsers(dest="sessions_action")
