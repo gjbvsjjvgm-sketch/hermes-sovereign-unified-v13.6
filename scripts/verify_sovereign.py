@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from agent.prompt_builder import SovereignPromptBuilder
+from agent.prompt_builder_sovereign import SovereignPromptBuilder
 import os
 
 def verify_deployment():

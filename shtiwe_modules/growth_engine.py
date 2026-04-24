@@ -1,15 +1,9 @@
 import time
 import random
 from playwright.sync_api import sync_playwright
-import playwright_stealth
 
 class GrowthEngine:
-    """
-    محرك النمو السيادي (النسخة غير الجذرية - Rootless).
-    تم ضبط المتصفح ليعمل في بيئة مستخدم عادية بدون صلاحيات Root.
-    """
     def __init__(self):
-        # المسار الافتراضي لكروميوم في Termux
         self.chrome_path = "/data/data/com.termux/files/usr/bin/chromium"
         self.user_agents = [
             "Mozilla/5.0 (Linux; Android 13; SM-S918B) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Mobile Safari/537.36"
@@ -22,19 +16,21 @@ class GrowthEngine:
                 browser = p.chromium.launch(
                     executable_path=self.chrome_path,
                     headless=True,
-                    # أعلام هامة للعمل بدون Root وتجاوز Sandbox
-                    args=[
-                        "--no-sandbox", 
-                        "--disable-setuid-sandbox",
-                        "--disable-dev-shm-usage", # لتجنب مشاكل الذاكرة في أندرويد 13+
-                        "--disable-gpu"
-                    ]
+                    args=["--no-sandbox", "--disable-setuid-sandbox", "--disable-dev-shm-usage", "--disable-gpu"]
                 )
                 context = browser.new_context(user_agent=random.choice(self.user_agents))
                 page = context.new_page()
                 
-                playwright_stealth.stealth_sync(page)
-                
+                try:
+                    import playwright_stealth
+                    # Try both common injection patterns
+                    if hasattr(playwright_stealth, 'stealth_sync'):
+                        playwright_stealth.stealth_sync(page)
+                    elif hasattr(playwright_stealth, 'stealth_page'):
+                        playwright_stealth.stealth_page(page)
+                except ImportError:
+                    print("[!] playwright-stealth not found, skipping...")
+
                 page.goto(target_url, wait_until="networkidle")
                 time.sleep(random.uniform(2.0, 5.0))
                 browser.close()

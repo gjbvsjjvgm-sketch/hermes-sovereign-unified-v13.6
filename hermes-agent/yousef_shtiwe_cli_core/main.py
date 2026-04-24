@@ -5293,7 +5293,7 @@ For more help on a command:
     cron_list.add_argument("--all", action="store_true", help="Include disabled jobs")
 
     # cron create/add
-    cron_create = cron_subparsers.add_parser("create", aliases=["add"], help="Create a scheduled job")
+    cron_create = cron_subparsers.add_parser("create", help="Create a scheduled job")
     cron_create.add_argument("schedule", help="Schedule like '30m', 'every 2h', or '0 9 * * *'")
     cron_create.add_argument("prompt", nargs="?", help="Optional self-contained prompt or task instruction")
     cron_create.add_argument("--name", help="Optional human-friendly job name")
@@ -5326,7 +5326,7 @@ For more help on a command:
     cron_run = cron_subparsers.add_parser("run", help="Run a job on the next scheduler tick")
     cron_run.add_argument("job_id", help="Job ID to trigger")
 
-    cron_remove = cron_subparsers.add_parser("remove", aliases=["rm", "delete"], help="Remove a scheduled job")
+    cron_remove = cron_subparsers.add_parser("remove", help="Remove a scheduled job")
     cron_remove.add_argument("job_id", help="Job ID to remove")
 
     # cron status
@@ -5347,7 +5347,7 @@ For more help on a command:
     )
     webhook_subparsers = webhook_parser.add_subparsers(dest="webhook_action")
 
-    wh_sub = webhook_subparsers.add_parser("subscribe", aliases=["add"], help="Create a webhook subscription")
+    wh_sub = webhook_subparsers.add_parser("subscribe", help="Create a webhook subscription")
     wh_sub.add_argument("name", help="Route name (used in URL: /webhooks/<name>)")
     wh_sub.add_argument("--prompt", default="", help="Prompt template with {dot.notation} payload refs")
     wh_sub.add_argument("--events", default="", help="Comma-separated event types to accept")
@@ -5357,9 +5357,9 @@ For more help on a command:
     wh_sub.add_argument("--deliver-chat-id", default="", help="Target chat ID for cross-platform delivery")
     wh_sub.add_argument("--secret", default="", help="HMAC secret (auto-generated if omitted)")
 
-    webhook_subparsers.add_parser("list", aliases=["ls"], help="List all dynamic subscriptions")
+    webhook_subparsers.add_parser("list", help="List all dynamic subscriptions")
 
-    wh_rm = webhook_subparsers.add_parser("remove", aliases=["rm"], help="Remove a subscription")
+    wh_rm = webhook_subparsers.add_parser("remove", help="Remove a subscription")
     wh_rm.add_argument("name", help="Subscription name to remove")
 
     wh_test = webhook_subparsers.add_parser("test", help="Send a test POST to a webhook route")
@@ -5683,11 +5683,11 @@ Examples:
     plugins_update.add_argument("name", help="Plugin name to update")
 
     plugins_remove = plugins_subparsers.add_parser(
-        "remove", aliases=["rm", "uninstall"], help="Remove an installed plugin"
+        "remove", help="Remove an installed plugin"
     )
     plugins_remove.add_argument("name", help="Plugin directory name to remove")
 
-    plugins_subparsers.add_parser("list", aliases=["ls"], help="List installed plugins")
+    plugins_subparsers.add_parser("list", help="List installed plugins")
 
     plugins_enable = plugins_subparsers.add_parser(
         "enable", help="Enable a disabled plugin"
@@ -5912,15 +5912,15 @@ Examples:
     mcp_add_p.add_argument("--preset", help="Known MCP preset name")
     mcp_add_p.add_argument("--env", nargs="*", default=[], help="Environment variables for stdio servers (KEY=VALUE)")
 
-    mcp_rm_p = mcp_sub.add_parser("remove", aliases=["rm"], help="Remove an MCP server")
+    mcp_rm_p = mcp_sub.add_parser("remove", help="Remove an MCP server")
     mcp_rm_p.add_argument("name", help="Server name to remove")
 
-    mcp_sub.add_parser("list", aliases=["ls"], help="List configured MCP servers")
+    mcp_sub.add_parser("list", help="List configured MCP servers")
 
     mcp_test_p = mcp_sub.add_parser("test", help="Test MCP server connection")
     mcp_test_p.add_argument("name", help="Server name to test")
 
-    mcp_cfg_p = mcp_sub.add_parser("configure", aliases=["config"], help="Toggle tool selection")
+    mcp_cfg_p = mcp_sub.add_parser("configure", help="Toggle tool selection")
     mcp_cfg_p.add_argument("name", help="Server name to configure")
 
     mcp_login_p = mcp_sub.add_parser(
