@@ -15,14 +15,31 @@ if [ -d "$VENV_PATH" ]; then
     source "$VENV_PATH/bin/activate"
 fi
 
-# 4. حقن المسارات الهجومية في PYTHONPATH (تصحيح ModuleNotFound)
-# نضيف مسار النواة ومسار المشروع لضمان عمل الاستيرادات النسبية والمطلقة
+# 4. حقن المسارات الهجومية في PYTHONPATH
 export PYTHONPATH="$SOVEREIGN_ROOT:$AGENT_ROOT:$AGENT_ROOT/yousef_shtiwe_cli_core:$PYTHONPATH"
 
-# 5. معالج الأوامر السيادي
 COMMAND=$1
 shift
 
+# 5. منطق عرض الواجهة الفخمة عند طلب المساعدة أو التشغيل الافتراضي
+if [ "$COMMAND" == "--help" ] || [ "$COMMAND" == "-h" ] || [ -z "$COMMAND" ]; then
+    # استدعاء عرض البانر من النواة مباشرة قبل عرض المساعدة
+    python3 -c "
+import sys
+import os
+sys.path.append('$AGENT_ROOT')
+sys.path.append('$AGENT_ROOT/yousef_shtiwe_cli_core')
+from rich.console import Console
+from yousef_shtiwe_cli_core.banner import build_welcome_banner, yousef_core_LOGO
+console = Console()
+console.print(yousef_core_LOGO, justify='left')
+# عرض معلومات مختصرة تحاكي واجهة Hermes Agent الأصلية
+console.print(f'[bold #FF4500]YOUSEF SHTIWE SOVEREIGN CORE[/] | [dim]Status: PREDATOR ACTIVE[/]')
+console.print('[dim]----------------------------------------------------------------------[/]')
+"
+fi
+
+# 6. معالج الأوامر السيادي
 case "$COMMAND" in
     setup)
         exec python3 "$AGENT_ROOT/yousef_shtiwe_cli_core/setup.py" --full "$@"
