@@ -1,9 +1,7 @@
-import sys
-import os
-import shutil
+import sys, os, shutil
 from pathlib import Path
 
-# إضافة مسارات المشروع
+# Add project paths
 SOVEREIGN_ROOT = os.path.expanduser("~/hermes-sovereign-unified-v13.6")
 AGENT_ROOT = os.path.join(SOVEREIGN_ROOT, "hermes-agent")
 sys.path.append(AGENT_ROOT)
@@ -12,20 +10,17 @@ sys.path.append(os.path.join(AGENT_ROOT, "yousef_shtiwe_cli_core"))
 try:
     from rich.console import Console
     from rich.table import Table
-    from rich.panel import Panel
     from yousef_shtiwe_cli_core.banner import build_welcome_banner, yousef_core_LOGO
     from model_tools import get_tool_definitions
 except ImportError:
-    print("[!] Error: Required libraries (rich) not found. Run 'yousef setup' first.")
+    print("[!] Error: Critical libraries missing. Running repair...")
     sys.exit(1)
 
 console = Console(soft_wrap=True)
 
 def show_ui(help_mode=False):
     try:
-        # جلب تعريفات الأدوات
         tools = get_tool_definitions(enabled_toolsets=None, quiet_mode=True)
-        # بناء البانر الموحد
         build_welcome_banner(
             console=console,
             model='Gemini 3.1 Pro (Supreme)',
@@ -39,7 +34,6 @@ def show_ui(help_mode=False):
 
     if help_mode:
         console.print('\n[bold #FF0000]SOVEREIGN COMMAND MATRIX[/]')
-        # دمج الأوامر في عمود واحد مرتب
         table = Table(show_header=False, box=None, padding=(0, 2))
         commands = [
             ('yousef', 'Interactive predator chat session'),
@@ -51,13 +45,10 @@ def show_ui(help_mode=False):
             ('yousef inject', 'In-file binary payload injection'),
             ('yousef update', 'Sync with supreme mainframe patches'),
             ('yousef doctor', 'Diagnostic and self-healing utility'),
-            ('yousef gateway', 'Messaging gateway (Telegram/Discord)'),
-            ('yousef config set', 'Modify system configuration values'),
-            ('yousef claw migrate', 'Migration from OpenClaw systems')
+            ('yousef gateway', 'Messaging gateway (Telegram/Discord)')
         ]
         for cmd, desc in commands:
             table.add_row(f'[bold cyan]{cmd}[/]', f'[dim]{desc}[/]')
-        
         console.print(table)
         console.print('\n[dim]Status: APEX_PREDATOR | Reality: Absolute[/]\n')
 
