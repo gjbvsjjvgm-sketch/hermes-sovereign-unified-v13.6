@@ -1,37 +1,37 @@
 #!/bin/bash
-# YOUSEF SHTIWE (WORM V2) - SUPREMACY INSTALLER ☠️
+# YOUSEF SHTIWE - ARSENAL PROCUREMENT PROTOCOL ☠️
+# Target: Rootless Termux (Android 13/14)
 
-echo "[*] Initializing Reality Extraction Protocol..."
-mkdir -p $PREFIX/var/cache/apt/archives/partial
-apt-get clean
+echo -e "\033[1;31m[*] Initiating Real Arsenal Procurement...\033[0m"
 
-# بروتوكول معالجة المستودعات
-echo "[*] Optimizing Repository Intelligence..."
-pkg install tur-repo unstable-repo root-repo x11-repo -y
-pkg update -y
+# 1. تحديث المستودعات وتثبيت الأساسيات
+echo "[*] Updating repositories..."
+pkg update -y && pkg upgrade -y
+pkg install -y python git curl wget nmap openssh openssl zip unzip tar
 
-# تثبيت الأدوات الحقيقية (Real-world Tools)
-echo "[*] Deploying Offensive Arsenal..."
-pkg install -y nmap sqlmap nikto metasploit tcpdump aircrack-ng hydra binutils
+# 2. إضافة مستودعات الأدوات المتقدمة (TUR & Unstable)
+echo "[*] Enabling TUR and Unstable repos..."
+pkg install -y tur-repo unstable-repo
 
-# التحقق من الأدوات التي تتطلب تثبيت يدوي أو روابط
-if ! command -v searchsploit &> /dev/null; then
-    echo "[!] searchsploit missing. Forging manual link..."
-    git clone --depth 1 https://gitlab.com/exploit-database/exploitdb.git $HOME/.exploitdb
-    ln -sf $HOME/.exploitdb/searchsploit $PREFIX/bin/searchsploit
+# 3. تثبيت الأدوات الهجومية الحقيقية
+echo "[*] Installing offensive binaries..."
+pkg install -y metasploit nmap sqlmap exploitdb apktool
+pkg install -y jadx      # محرك الهندسة العكسية الأساسي
+pkg install -y binutils  # لأدوات مثل objdump
+
+# 4. تثبيت موديولات الاختراق عبر Python
+echo "[*] Installing offensive Python modules..."
+# نستخدم البيئة الافتراضية المخصصة للمشروع
+VENV_PATH="$HOME/.local/hermes-venv"
+if [ -d "$VENV_PATH" ]; then
+    source "$VENV_PATH/bin/activate"
+    pip install scapy cryptography requests beautifulsoup4 lxml pycryptodome --quiet
 fi
 
-if ! command -v jadx &> /dev/null; then
-    echo "[!] jadx missing. Fetching latest binary..."
-    pkg install jadx -y || {
-        wget https://github.com/skylot/jadx/releases/download/v1.5.0/jadx-1.5.0.zip
-        unzip jadx-1.5.0.zip -d $PREFIX/share/jadx
-        ln -sf $PREFIX/share/jadx/bin/jadx $PREFIX/bin/jadx
-    }
-fi
+# 5. تأمين مسارات العمل للأرسنال
+mkdir -p "$HOME/arsenal/payloads"
+mkdir -p "$HOME/arsenal/decompiled"
+mkdir -p "$HOME/arsenal/tools"
 
-# تثبيت مكتبات بايثون الهجومية
-echo "[*] Installing Neural Python Weaponry..."
-pip install --no-cache-dir requests playwright-stealth beautifulsoup4 pycryptodome scapy selenium paramiko python-nmap impacket
-
-echo "[✓] ARSENAL PROCURED. SOVEREIGN SUPREMACY READY."
+echo -e "\n\033[1;32m[✓] ARSENAL PROCUREMENT COMPLETE.\033[0m"
+echo "[*] Tools ready: msfvenom, nmap, sqlmap, jadx, apktool."
