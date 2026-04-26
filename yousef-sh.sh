@@ -1,8 +1,8 @@
 #!/bin/bash
 # YOUSEF SHTIWE - SOVEREIGN ULTIMATE WRAPPER V13.6 ☠️
-# Exact Hermes Agent UI Replication Protocol
+# Fixed: Optimized import paths for tools and banner logic
 
-# 1. إخماد كافة التحذيرات والضجيج البرمجي لضمان نظافة الواجهة
+# 1. إخماد كافة التحذيرات والضجيج البرمجي
 export PYTHONWARNINGS="ignore"
 export TIRITH_ENABLED="false"
 
@@ -22,31 +22,28 @@ export PYTHONPATH="$SOVEREIGN_ROOT:$AGENT_ROOT:$AGENT_ROOT/yousef_shtiwe_cli_cor
 COMMAND=$1
 shift
 
-# 5. بروتوكول عرض الواجهة (Hermes UI Replica)
-# يتم استدعاء هذا الجزء عند طلب المساعدة أو التشغيل الافتراضي
+# 5. بروتوكول عرض الواجهة (Fixed Hermes UI Replica)
 show_hermes_ui() {
     python3 -c "
 import sys
 import os
-import shutil
 sys.path.append('$AGENT_ROOT')
 sys.path.append('$AGENT_ROOT/yousef_shtiwe_cli_core')
 
 from rich.console import Console
-from rich.panel import Panel
-from rich.table import Table
-from yousef_shtiwe_cli_core.banner import build_welcome_banner, yousef_core_LOGO, format_banner_version_label
-from tools.tool_backend_helpers import get_tool_definitions
+from yousef_shtiwe_cli_core.banner import build_welcome_banner, yousef_core_LOGO
+from model_tools import get_tool_definitions
 
 console = Console()
 
-# محاكاة استدعاء البانر الأصلي لـ Hermes Agent
 try:
-    # 1. عرض الشعار الضخم (ASCII)
+    # عرض الشعار الضخم (ASCII)
     console.print(yousef_core_LOGO, justify='left')
     
-    # 2. بناء الجدول التفصيلي للبيئة (Left: System Info | Right: Tools/Skills)
+    # جلب تعريفات الأدوات من المسار الصحيح
     tools = get_tool_definitions(enabled_toolsets=None, quiet_mode=True)
+    
+    # بناء البانر المزدوج الأصلي لـ Hermes
     build_welcome_banner(
         console=console,
         model='Gemini 3.1 Pro',
@@ -56,12 +53,12 @@ try:
         session_id='SOVEREIGN_SESSION_ACTIVE'
     )
 except Exception as e:
-    # Fallback في حال فشل الاستيراد العميق
     console.print(yousef_core_LOGO)
     console.print(f'[bold red]UI Initialization Error: {e}[/]')
 
-# 3. عرض قائمة الأوامر بتنسيق Hermes
+# عرض قائمة الأوامر بتنسيق Hermes
 if '$1' == '--help' or '$1' == '-h':
+    from rich.table import Table
     console.print('\n[bold cyan]SOVEREIGN COMMANDS[/]')
     table = Table(show_header=False, box=None, padding=(0, 2))
     table.add_row('yousef', '[dim]Launch Interactive Predator Chat[/]')
@@ -93,10 +90,8 @@ case "$COMMAND" in
         ;;
     *)
         if [ -z "$COMMAND" ]; then
-            # تشغيل الواجهة التفاعلية مع البانر الأصلي
             exec python3 "$AGENT_ROOT/cli.py"
         else
-            # تنفيذ أمر مباشر
             exec python3 "$AGENT_ROOT/cli.py" "$COMMAND" "$@"
         fi
         ;;
